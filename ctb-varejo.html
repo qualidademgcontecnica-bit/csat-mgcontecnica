@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Contábil Indústria</title>
+<title>Contábil Varejo</title>
 
 <script src="https://cdn.tailwindcss.com"></script>
 
@@ -329,7 +329,6 @@ font-size:22px;
 .progress{
 
 width:100%;
-
 height:12px;
 
 background:#1e293b;
@@ -345,7 +344,6 @@ margin-bottom:50px;
 .progress-bar{
 
 height:100%;
-
 width:0%;
 
 background:#ff003c;
@@ -518,9 +516,8 @@ transform:scale(1.03);
 
 <div id="smoke"></div>
 
-<form
-id="surveyForm"
->
+<form id="surveyForm">
+
 
 
 <div class="card">
@@ -532,7 +529,7 @@ id="surveyForm"
 <img src="logo.png" class="logo">
 
 <h1>
-CONTÁBIL INDÚSTRIA
+CONTÁBIL VAREJO
 </h1>
 
 <div class="sub">
@@ -577,7 +574,7 @@ INICIAR AVALIAÇÃO 🚀
 <img src="logo.png" class="logo">
 
 <h1>
-CONTÁBIL INDÚSTRIA
+CONTÁBIL VAREJO
 </h1>
 
 <div class="sub">
@@ -663,14 +660,29 @@ params.get("id") || "CRD000";
 
 const coordenadores = {
 
-"CTBINDUSTRIA-ErikaSantana": {
-nome: "Erika Santana",
-setor: "CTB - CONTÁBIL INDÚSTRIA"
+"CTBVAREJO-EdileideDias": {
+nome: "Edileide Dias",
+setor: "CTB - CONTÁBIL VAREJO"
 },
 
-"CTBINDUSTRIA-IsabellaNascimento": {
-nome: "Isabella Nascimento",
-setor: "CTB - CONTÁBIL INDÚSTRIA"
+"CTBVAREJO-FernandaAraujo": {
+nome: "Fernanda Araujo",
+setor: "CTB - CONTÁBIL VAREJO"
+},
+
+"CTBVAREJO-KarinaSantos": {
+nome: "Karina Santos",
+setor: "CTB - CONTÁBIL VAREJO"
+},
+
+"CTBVAREJO-LucasFischer": {
+nome: "Lucas Fischer",
+setor: "CTB - CONTÁBIL VAREJO"
+},
+
+"CTBVAREJO-TatianaLinardi": {
+nome: "Tatiana Linardi",
+setor: "CTB - CONTÁBIL VAREJO"
 }
 
 };
@@ -682,11 +694,11 @@ coordenadores[idCoord];
 
 const questions = [
 
-"As informações contábeis são entregues com clareza e precisão?",
+"As informações contábeis do varejo são entregues com clareza e precisão?",
 
 "Você sente confiança nos relatórios e demonstrativos apresentados?",
 
-"O atendimento do setor contábil atende suas expectativas?"
+"O atendimento do setor contábil varejo atende suas expectativas?"
 
 ];
 
@@ -757,7 +769,7 @@ return;
 
 }
 
-/* LIBERA */
+/* LIBERA PESQUISA */
 
 document.getElementById("intro").style.display = "none";
 
@@ -826,11 +838,11 @@ media.toFixed(1);
 
 const formData = {
 
-id_form: "FORM001",
+id_form: "FORM002",
 
 id_coord: idCoord,
 
-formulario: "Contábil Indústria",
+formulario: "Contábil Varejo",
 
 cliente:
 document.getElementById("cliente").value,
@@ -897,6 +909,10 @@ return;
 loadQuestion();
 
 }
+
+</script>
+  
+</script>
 
 </script>
 
