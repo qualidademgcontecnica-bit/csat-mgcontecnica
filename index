@@ -1,0 +1,1273 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>
+MG Contécnica | Central de Avaliações
+</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+
+<style>
+
+/* BODY */
+
+body{
+
+margin:0;
+font-family:Arial,sans-serif;
+background:#070b1a;
+overflow-x:hidden;
+color:white;
+
+}
+
+/* FUNDO */
+
+.background{
+
+position:fixed;
+inset:0;
+
+background:
+linear-gradient(rgba(7,11,26,0.96), rgba(7,11,26,0.96)),
+url('logo.png');
+
+background-repeat:no-repeat;
+background-position:center;
+background-size:30%;
+
+opacity:0.12;
+
+z-index:-5;
+
+}
+
+/* ESTRELAS */
+
+.background::before{
+
+content:"✨ ✦ ⭐ ✨ ✦ ⭐ ✨";
+
+position:absolute;
+inset:0;
+
+display:flex;
+
+justify-content:space-around;
+align-items:center;
+
+font-size:55px;
+
+letter-spacing:220px;
+
+opacity:0.15;
+
+color:#f5d76e;
+
+animation:stars 10s ease-in-out infinite;
+
+filter:
+drop-shadow(0 0 10px #f5d76e);
+
+}
+
+@keyframes stars{
+
+0%{
+transform:translateY(0px);
+}
+
+50%{
+transform:translateY(-15px);
+}
+
+100%{
+transform:translateY(0px);
+}
+
+}
+
+/* FOGUETE */
+
+.rocket{
+
+position:fixed;
+
+left:-150px;
+bottom:-100px;
+
+font-size:90px;
+
+opacity:0.12;
+
+z-index:-1;
+
+animation:rocketFly 12s linear infinite;
+
+filter:
+drop-shadow(0 0 25px #ff003c);
+
+}
+
+@keyframes rocketFly{
+
+0%{
+
+left:-150px;
+bottom:-100px;
+
+transform:
+rotate(25deg)
+scale(0.8);
+
+}
+
+50%{
+
+transform:
+rotate(15deg)
+scale(1);
+
+}
+
+100%{
+
+left:110%;
+bottom:120%;
+
+transform:
+rotate(8deg)
+scale(1.2);
+
+}
+
+}
+
+/* CONTAINER */
+
+.container{
+
+width:95%;
+max-width:1600px;
+
+margin:auto;
+
+padding-top:50px;
+padding-bottom:80px;
+
+}
+
+/* HEADER */
+
+.header{
+
+text-align:center;
+margin-bottom:60px;
+
+}
+
+/* LOGO */
+
+.logo{
+
+width:180px;
+
+display:block;
+
+margin:auto;
+
+margin-bottom:25px;
+
+}
+
+/* TITULO */
+
+h1{
+
+font-size:68px;
+
+margin-bottom:10px;
+
+}
+
+/* SUB */
+
+.sub{
+
+font-size:24px;
+
+color:#cbd5e1;
+
+}
+
+/* DASHBOARD */
+
+.dashboard{
+
+display:grid;
+
+grid-template-columns:
+repeat(4,1fr);
+
+gap:25px;
+
+margin-top:50px;
+margin-bottom:70px;
+
+}
+
+/* STATS */
+
+.stat{
+
+background:
+rgba(255,255,255,0.05);
+
+border:
+1px solid rgba(255,255,255,0.1);
+
+border-radius:30px;
+
+padding:35px;
+
+text-align:center;
+
+backdrop-filter:blur(8px);
+
+box-shadow:
+0 20px 40px rgba(0,0,0,0.4);
+
+transition:0.4s;
+
+}
+
+.stat:hover{
+
+transform:
+translateY(-8px)
+scale(1.02);
+
+border:
+1px solid rgba(255,0,60,0.4);
+
+}
+
+/* TITULO STAT */
+
+.stat-title{
+
+font-size:22px;
+
+color:#cbd5e1;
+
+margin-bottom:15px;
+
+}
+
+/* NUMERO */
+
+.stat-number{
+
+font-size:55px;
+
+font-weight:bold;
+
+color:#ff003c;
+
+}
+
+/* CARDS */
+
+.cards{
+
+display:grid;
+
+grid-template-columns:
+repeat(5,1fr);
+
+gap:25px;
+
+align-items:stretch;
+
+}
+
+/* RESPONSIVO */
+
+@media(max-width:1400px){
+
+.cards{
+
+grid-template-columns:
+repeat(3,1fr);
+
+}
+
+}
+
+@media(max-width:900px){
+
+.cards{
+
+grid-template-columns:
+repeat(2,1fr);
+
+}
+
+}
+
+@media(max-width:700px){
+
+.cards{
+
+grid-template-columns:
+1fr;
+
+}
+
+.dashboard{
+
+grid-template-columns:
+1fr;
+
+}
+
+}
+
+/* CARD */
+
+.card{
+
+display:flex;
+
+flex-direction:column;
+
+min-height:560px;
+
+background:
+rgba(255,255,255,0.05);
+
+border:
+1px solid rgba(255,255,255,0.1);
+
+border-radius:35px;
+
+padding:40px;
+
+text-align:center;
+
+backdrop-filter:blur(10px);
+
+box-shadow:
+0 20px 50px rgba(0,0,0,0.45);
+
+transition:0.5s;
+
+position:relative;
+
+overflow:hidden;
+
+}
+
+/* HOVER */
+
+.card:hover{
+
+transform:
+translateY(-10px)
+scale(1.02);
+
+border:
+1px solid rgba(255,0,60,0.4);
+
+box-shadow:
+0 0 35px rgba(255,0,60,0.25);
+
+}
+
+/* BRILHO */
+
+.card::before{
+
+content:"";
+
+position:absolute;
+
+top:-120%;
+left:-40%;
+
+width:80%;
+height:300%;
+
+background:
+linear-gradient(
+to right,
+transparent,
+rgba(255,255,255,0.12),
+transparent
+);
+
+transform:rotate(25deg);
+
+transition:0.8s;
+
+}
+
+.card:hover::before{
+
+left:140%;
+
+}
+
+/* ICON */
+
+.icon{
+
+font-size:65px;
+
+margin-bottom:25px;
+
+}
+
+/* TITULO CARD */
+
+.card-title{
+
+font-size:30px;
+
+font-weight:bold;
+
+margin-bottom:15px;
+
+}
+
+/* TEXTO */
+
+.card-text{
+
+font-size:18px;
+
+line-height:1.6;
+
+color:#cbd5e1;
+
+margin-bottom:25px;
+
+}
+
+/* BOTÃO */
+
+.btn{
+
+display:inline-block;
+
+padding:16px 28px;
+
+border-radius:18px;
+
+background:#ff003c;
+
+color:white;
+
+font-weight:bold;
+
+border:none;
+
+cursor:pointer;
+
+transition:0.3s;
+
+margin-top:auto;
+
+}
+
+.btn:hover{
+
+transform:scale(1.05);
+
+}
+
+/* PREVIEW */
+
+.preview{
+
+max-height:0;
+
+overflow:hidden;
+
+opacity:0;
+
+transition:0.6s;
+
+margin-top:0;
+
+width:100%;
+
+}
+
+/* CARD ABERTO */
+
+.card.aberto .preview{
+
+max-height:1000px;
+
+opacity:1;
+
+margin-top:30px;
+
+}
+
+/* STATS RESUMO */
+
+.preview-stat{
+
+background:
+rgba(255,255,255,0.05);
+
+padding:16px;
+
+border-radius:18px;
+
+margin-bottom:15px;
+
+font-size:18px;
+
+border:
+1px solid rgba(255,255,255,0.05);
+
+}
+
+/* RANKING */
+
+.ranking{
+
+margin-top:30px;
+
+padding-top:25px;
+
+border-top:
+1px solid rgba(255,255,255,0.08);
+
+}
+
+.ranking h3{
+
+font-size:24px;
+
+margin-bottom:20px;
+
+}
+
+/* ITENS RANKING */
+
+.rank-item{
+
+background:
+rgba(255,255,255,0.04);
+
+padding:14px;
+
+border-radius:15px;
+
+margin-bottom:12px;
+
+font-size:17px;
+
+transition:0.3s;
+
+}
+
+.rank-item:hover{
+
+transform:translateX(5px);
+
+background:
+rgba(255,0,60,0.12);
+
+}
+
+/* BOTÃO ABERTO */
+
+.card.aberto .btn{
+
+background:#22c55e;
+
+}
+
+/* FOOTER */
+
+.footer{
+
+margin-top:80px;
+
+text-align:center;
+
+color:#94a3b8;
+
+font-size:18px;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="background"></div>
+
+<div class="rocket">
+🚀
+</div>
+
+<div class="container">
+
+<!-- HEADER -->
+
+<div class="header">
+
+<img src="logo.png"
+class="logo">
+
+<h1>
+Central de Avaliações
+</h1>
+
+<div class="sub">
+Painel Executivo • MG Contécnica
+</div>
+
+</div>
+
+<!-- DASHBOARD -->
+
+<div class="dashboard">
+
+<div class="stat">
+
+<div class="stat-title">
+Média Geral CSAT
+</div>
+
+<div
+class="stat-number"
+id="mediaGeral">
+0
+</div>
+
+</div>
+
+<div class="stat">
+
+<div class="stat-title">
+Total de Avaliações
+</div>
+
+<div
+class="stat-number"
+id="totalAvaliacoes">
+0
+</div>
+
+</div>
+
+<div class="stat">
+
+<div class="stat-title">
+Melhor Setor
+</div>
+
+<div
+class="stat-number"
+id="melhorSetor"
+style="
+font-size:26px;
+line-height:1.2;
+">
+-
+</div>
+
+</div>
+
+<div class="stat">
+
+<div class="stat-title">
+Satisfação Geral
+</div>
+
+<div
+class="stat-number"
+id="satisfacaoGeral">
+0%
+</div>
+
+</div>
+
+</div>
+
+<!-- CARDS -->
+
+<div class="cards">
+
+<!-- CONTÁBIL INDÚSTRIA -->
+
+<div class="card">
+
+<div class="icon">🏭</div>
+
+<div class="card-title">
+Contábil Indústria
+</div>
+
+<div class="card-text">
+Avaliação do setor contábil industrial.
+</div>
+
+<button
+class="btn"
+onclick="abrirResumo(this)">
+ACESSAR
+</button>
+
+<div class="preview">
+
+<div class="preview-stat" id="ci-csat">
+⭐ Média CSAT: -
+</div>
+
+<div class="preview-stat" id="ci-avaliacoes">
+📋 0 avaliações
+</div>
+
+<div class="preview-stat" id="ci-satisfacao">
+🔥 0% satisfação
+</div>
+
+<div class="ranking">
+
+<h3>
+🏆 Top Coordenadores
+</h3>
+
+<div id="ranking-ci"></div>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- CONTÁBIL VAREJO -->
+
+<div class="card">
+
+<div class="icon">🛒</div>
+
+<div class="card-title">
+Contábil Varejo
+</div>
+
+<div class="card-text">
+Avaliação do setor contábil varejista.
+</div>
+
+<button
+class="btn"
+onclick="abrirResumo(this)">
+ACESSAR
+</button>
+
+<div class="preview">
+
+<div class="preview-stat" id="cv-csat">
+⭐ Média CSAT: -
+</div>
+
+<div class="preview-stat" id="cv-avaliacoes">
+📋 0 avaliações
+</div>
+
+<div class="preview-stat" id="cv-satisfacao">
+🔥 0% satisfação
+</div>
+
+<div class="ranking">
+
+<h3>
+🏆 Top Coordenadores
+</h3>
+
+<div id="ranking-cv"></div>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- DP -->
+
+<div class="card">
+
+<div class="icon">👥</div>
+
+<div class="card-title">
+Departamento Pessoal
+</div>
+
+<div class="card-text">
+Pesquisa de satisfação do setor DP.
+</div>
+
+<button
+class="btn"
+onclick="abrirResumo(this)">
+ACESSAR
+</button>
+
+<div class="preview">
+
+<div class="preview-stat" id="dp-csat">
+⭐ Média CSAT: -
+</div>
+
+<div class="preview-stat" id="dp-avaliacoes">
+📋 0 avaliações
+</div>
+
+<div class="preview-stat" id="dp-satisfacao">
+🔥 0% satisfação
+</div>
+
+<div class="ranking">
+
+<h3>
+🏆 Top Coordenadores
+</h3>
+
+<div id="ranking-dp"></div>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- FISCAL INDÚSTRIA -->
+
+<div class="card">
+
+<div class="icon">📊</div>
+
+<div class="card-title">
+Fiscal Indústria
+</div>
+
+<div class="card-text">
+Pesquisa fiscal voltada para indústria.
+</div>
+
+<button
+class="btn"
+onclick="abrirResumo(this)">
+ACESSAR
+</button>
+
+<div class="preview">
+
+<div class="preview-stat" id="fi-csat">
+⭐ Média CSAT: -
+</div>
+
+<div class="preview-stat" id="fi-avaliacoes">
+📋 0 avaliações
+</div>
+
+<div class="preview-stat" id="fi-satisfacao">
+🔥 0% satisfação
+</div>
+
+<div class="ranking">
+
+<h3>
+🏆 Top Coordenadores
+</h3>
+
+<div id="ranking-fi"></div>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- FISCAL VAREJO -->
+
+<div class="card">
+
+<div class="icon">💰</div>
+
+<div class="card-title">
+Fiscal Varejo
+</div>
+
+<div class="card-text">
+Pesquisa fiscal voltada para varejo.
+</div>
+
+<button
+class="btn"
+onclick="abrirResumo(this)">
+ACESSAR
+</button>
+
+<div class="preview">
+
+<div class="preview-stat" id="fv-csat">
+⭐ Média CSAT: -
+</div>
+
+<div class="preview-stat" id="fv-avaliacoes">
+📋 0 avaliações
+</div>
+
+<div class="preview-stat" id="fv-satisfacao">
+🔥 0% satisfação
+</div>
+
+<div class="ranking">
+
+<h3>
+🏆 Top Coordenadores
+</h3>
+
+<div id="ranking-fv"></div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- FOOTER -->
+
+<div class="footer">
+
+MG Contécnica © 2026
+
+<br><br>
+
+Sistema Inteligente de Avaliações
+
+</div>
+
+</div>
+
+<script>
+
+/* ABRIR RESUMO */
+
+function abrirResumo(botao){
+
+const card =
+botao.closest(".card");
+
+document
+.querySelectorAll(".card")
+.forEach(c => {
+
+if(c !== card){
+
+c.classList.remove("aberto");
+
+const b =
+c.querySelector(".btn");
+
+b.innerText = "ACESSAR";
+
+}
+
+});
+
+card.classList.toggle("aberto");
+
+if(card.classList.contains("aberto")){
+
+botao.innerText =
+"RESUMO ABERTO";
+
+}else{
+
+botao.innerText =
+"ACESSAR";
+
+}
+
+}
+
+/* GOOGLE SHEETS */
+
+const URL_CSV =
+"https://docs.google.com/spreadsheets/d/e/2PACX-1vQ6bbUeI3nUwD1BK29D9QbTenbIocGWkDgaGkC6RHnt6Ham0aBMTvYIGO9Et97k8P-GgOn4ZNuec3tz/pub?output=csv";
+
+async function carregarDados(){
+
+const resposta =
+await fetch(URL_CSV);
+
+const texto =
+await resposta.text();
+
+const linhas =
+texto.trim().split("\n").slice(1);
+
+let totalCSAT = 0;
+
+let totalAvaliacoes = 0;
+
+const setores = {};
+
+linhas.forEach(linha => {
+
+const colunas =
+linha.split(",");
+
+const coordenador =
+colunas[2]?.trim();
+
+const setor =
+colunas[3]?.trim();
+
+const csat =
+parseFloat(colunas[9]);
+
+if(!setor || isNaN(csat))
+return;
+
+totalCSAT += csat;
+
+totalAvaliacoes++;
+
+if(!setores[setor]){
+
+setores[setor] = {
+
+total:0,
+quantidade:0,
+coords:{}
+
+};
+
+}
+
+setores[setor].total += csat;
+
+setores[setor].quantidade++;
+
+if(!setores[setor].coords[coordenador]){
+
+setores[setor].coords[coordenador] = {
+
+total:0,
+quantidade:0
+
+};
+
+}
+
+setores[setor]
+.coords[coordenador]
+.total += csat;
+
+setores[setor]
+.coords[coordenador]
+.quantidade++;
+
+});
+
+/* DASHBOARD */
+
+const media =
+(totalCSAT / totalAvaliacoes)
+.toFixed(1);
+
+const satisfacao =
+(media * 10).toFixed(0);
+
+let melhorSetor = "-";
+let melhorMedia = 0;
+
+Object.keys(setores)
+.forEach(setor => {
+
+const mediaSetor =
+setores[setor].total /
+setores[setor].quantidade;
+
+if(mediaSetor > melhorMedia){
+
+melhorMedia = mediaSetor;
+melhorSetor = setor;
+
+}
+
+});
+
+document.getElementById(
+"mediaGeral"
+).innerText = media;
+
+document.getElementById(
+"totalAvaliacoes"
+).innerText = totalAvaliacoes;
+
+document.getElementById(
+"melhorSetor"
+).innerText = melhorSetor;
+
+document.getElementById(
+"satisfacaoGeral"
+).innerText =
+satisfacao + "%";
+
+/* MAPEAMENTO */
+
+const mapa = {
+
+"Contábil Indústria":"ci",
+"Contabil Industria":"ci",
+
+"Contábil Varejo":"cv",
+"Contabil Varejo":"cv",
+
+"Departamento Pessoal":"dp",
+"DP":"dp",
+
+"Fiscal Indústria":"fi",
+"Fiscal Industria":"fi",
+"EF Indústria":"fi",
+
+"Fiscal Varejo":"fv",
+"EF Varejo":"fv"
+
+
+};
+
+/* CARDS */
+
+Object.keys(setores)
+.forEach(setor => {
+
+const prefixo =
+mapa[setor];
+
+if(!prefixo)
+return;
+
+const mediaSetor =
+(
+setores[setor].total /
+setores[setor].quantidade
+).toFixed(1);
+
+const quantidade =
+setores[setor].quantidade;
+
+const satisfacaoSetor =
+(mediaSetor * 10)
+.toFixed(0);
+
+/* INSERIR */
+
+document.getElementById(
+`${prefixo}-csat`
+).innerHTML =
+`⭐ Média CSAT: ${mediaSetor}`;
+
+document.getElementById(
+`${prefixo}-avaliacoes`
+).innerHTML =
+`📋 ${quantidade} avaliações`;
+
+document.getElementById(
+`${prefixo}-satisfacao`
+).innerHTML =
+`🔥 ${satisfacaoSetor}% satisfação`;
+
+/* TOP 3 */
+
+const ranking = [];
+
+Object.keys(setores[setor].coords)
+.forEach(coord => {
+
+const dadosCoord =
+setores[setor].coords[coord];
+
+const mediaCoord =
+dadosCoord.total /
+dadosCoord.quantidade;
+
+ranking.push({
+
+nome: coord,
+media: mediaCoord
+
+});
+
+});
+
+ranking.sort((a,b)=>
+b.media - a.media
+);
+
+const top3 =
+ranking.slice(0,3);
+
+const medals = [
+"🥇",
+"🥈",
+"🥉"
+];
+
+let html = "";
+
+top3.forEach((item,index)=>{
+
+html += `
+
+<div class="rank-item">
+
+${medals[index]}
+${item.nome}
+— ${item.media.toFixed(1)}
+
+</div>
+
+`;
+
+});
+
+document.getElementById(
+`ranking-${prefixo}`
+).innerHTML = html;
+
+});
+
+}
+
+carregarDados();
+
+</script>
+
+</body>
+
+</html>
